@@ -82,10 +82,8 @@ https://calendarific.com/
 - [ ] Use "mobile first" principles to create a responsive website
 
 ## Post-MVP
-- [ ] Work with a UX student to improve usability of the site
 - [ ] Offer multiple email templates
-- [ ] Create a form that will automatically populate with email data so you can send the email from the site
-- [ ] Incorperate a loading animation
+- [ ] Incorperate a loading animation (possibly from codepen)
  
 # Project Schedule
 
