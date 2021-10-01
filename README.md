@@ -2,7 +2,7 @@
 [link to project here]
 
 # Project Description
-Have you ever wanted to skip out on work, but struggled to find an excuse? Now you can find the perfect excuse for any workday absence with "Sorry I Will Miss Work". Enter a date, and the app will give you a holiday to help you explain why you will miss work that day. "Sorry I Will Miss Work" will even create an email you can send to your boss that will surely explain the importance of your absence.
+Have you ever wanted to skip out on work, but struggled to find an excuse? Now you can find the perfect excuse for any workday absence with :tada:"Sorry I Will Miss Work":tada:! Enter a date, and the app will give you a holiday to help you explain why you will miss work that day. "Sorry I Will Miss Work" will even create an email you can send to your boss that will surely explain the importance of your absence.
 
 # API Sample
 https://calendarific.com/
@@ -74,17 +74,18 @@ https://calendarific.com/
 
 # MVP/Post-MVP
 ## MVP
-- Find and incorperate a holiday API
-- Render data using a date input
-- Generate an email template that includes the holiday and relevant information
-- Build layout using HTML and JavaScript
-- Style the page using CSS and Flexbox
-- Use "mobile first" principles to create a responsive website
+- [x] Find and incorperate a holiday API
+- [ ] Render data using a date input
+- [ ] Generate an email template that includes the holiday and relevant information
+- [ ] Build layout using HTML and JavaScript
+- [ ] Style the page using CSS and Flexbox
+- [ ] Use "mobile first" principles to create a responsive website
 
 ## Post-MVP
-- Work with a UX student to improve usability of the site
-- Create a form that will automatically populate with email data so you can send the email from the site
-- Incorperate a loading animation
+- [ ] Work with a UX student to improve usability of the site
+- [ ] Offer multiple email templates
+- [ ] Create a form that will automatically populate with email data so you can send the email from the site
+- [ ] Incorperate a loading animation
  
 # Project Schedule
 
