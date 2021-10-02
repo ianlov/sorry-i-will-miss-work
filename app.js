@@ -17,21 +17,38 @@ const year = '2021'
 const key = '9f7484ace85d979cd66c3f946ed8234d7c1374c8'
 const URL = `https://calendarific.com/api/v2/holidays?api_key=${key}&country=${country}&year=${year}`
 
-// Search
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM loaded')
-    document.querySelector('button').addEventListener('click', (ev) => {
-        console.log('button clicked')
-        fetch(URL)
-            //.then(() => { console.log('fetched data') })
-            .then((res) => { return res.json() })
-            .then((resJSON) => {
-                // Manipulate data
-                console.log(resJSON);
-            })
-            .catch((error) => { console.error(`ERROR: ${error}`) });
 
-            ev.preventDefault();
-    });
+// Messing with date input
+document.querySelector('button').addEventListener('click', (ev) => {
+    console.log('clicked');
+    const date = document.querySelector('#date').value;
+    console.log(date);
+    ev.preventDefault();
+    const newDate = date.split("-");
+    console.log(newDate);
+    year = newDate[0];
+    const month = newDate[1];
+    const day = newDate[2];
 });
+
+// Search
+// document.addEventListener('DOMContentLoaded', () => {
+//     console.log('DOM loaded')
+//     document.querySelector('button').addEventListener('click', (ev) => {
+//         console.log('button clicked')
+//         fetch(URL)
+//             //.then(() => { console.log('fetched data') })
+//             .then((res) => { return res.json() })
+//             .then((resJSON) => {
+//                 // Manipulate data
+//                 console.log(resJSON);
+//             })
+//             .catch((error) => { console.error(`ERROR: ${error}`) });
+
+//             ev.preventDefault();
+//     });
+// });
+
+
+
 // Choose holiday
