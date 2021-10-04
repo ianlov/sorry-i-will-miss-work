@@ -75,9 +75,9 @@ https://whimsical.com/siwmw-HFuHuQfxTcdVRwwSurp49k
 # MVP/Post-MVP
 ## MVP
 - [x] Find and incorperate a holiday API
-- [ ] Render data using a date input
-- [ ] Generate an email template that includes the holiday and relevant information
-- [ ] Build layout using HTML and JavaScript
+- [x] Render data using a date input
+- [x] Generate an email template that includes the holiday and relevant information
+- [x] Build layout using HTML and JavaScript
 - [ ] Style the page using CSS and Flexbox
 - [ ] Use "mobile first" principles to create a responsive website
 
