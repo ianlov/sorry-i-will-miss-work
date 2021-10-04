@@ -69,7 +69,8 @@ const textDates = {
         'January', 
         'February', 
         'March', 
-        'April', 
+        'April',
+        'May', 
         'June', 
         'July', 
         'August', 
@@ -104,13 +105,24 @@ const makeDisplay = (holidayArr) => {
 
     // When this runs, changes the value to true
     hasHoliday = true;
+
 };
 
 // Makes an email template with easily copyable text
 const makeTemplate = (day, month, year, holiday, description) => {
+    console.log(`Day: ${day}`);
+    console.log(`Month: ${month}`);
+    console.log(`Year: ${year}`);
+    console.log(`Holiday: ${holiday}`);
+    console.log(`Description: ${description}`);
 
+    // Fix additional period issues on description
+    if (description.charAt(description.length - 1) === ".") {
+        description = description.slice(0, -1);
+    }
+
+    // Create adaptave email template
     const template = `I regret to inform you that I will not be at work on the ${textDates.days[day-1]} of ${textDates.months[month-1]}, ${year}, because it is the very much celebrated ${holiday}. ${description}. I trust that you do not have any further questions about the matter.`
-
     console.log(template);
 
     // Clear screen
@@ -124,7 +136,6 @@ const makeTemplate = (day, month, year, holiday, description) => {
     // Add attributes
     email.placeholder = template;
     copy.innerText = 'Copy template';
-    // Copy to clipboard on click
     copy.addEventListener('click', () => {
         // Getting the text
         let copyText = document.querySelector('textarea');
@@ -143,6 +154,8 @@ const makeTemplate = (day, month, year, holiday, description) => {
     document.querySelector('#info').append(email, copy);
 
 };
+
+
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -215,6 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             };
         };
+        
         // Stop the page from reloading
         ev.preventDefault();
 
@@ -224,4 +238,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ~~~ Works Cited ~~~
 // Used for making a copy to clipboard button ==> https://www.w3schools.com/howto/howto_js_copy_clipboard.asp
-// 
+// Used for taking the period off the description ==> https://herewecode.io/blog/remove-last-character-string-javascript/ & https://stackoverflow.com/questions/3884632/how-to-get-the-last-character-of-a-string
