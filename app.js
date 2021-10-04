@@ -12,43 +12,190 @@ console.log('connected');
 // 4. Choose holiday
 // 5. Generate email template based on holiday choice
 
-const country = 'US'
-const year = '2021'
-const key = '9f7484ace85d979cd66c3f946ed8234d7c1374c8'
-const URL = `https://calendarific.com/api/v2/holidays?api_key=${key}&country=${country}&year=${year}`
-
 
 // Messing with date input
-document.querySelector('button').addEventListener('click', (ev) => {
-    console.log('clicked');
-    const date = document.querySelector('#date').value;
-    console.log(date);
-    ev.preventDefault();
-    const newDate = date.split("-");
-    console.log(newDate);
-    year = newDate[0];
-    const month = newDate[1];
-    const day = newDate[2];
-});
-
-// Search
-// document.addEventListener('DOMContentLoaded', () => {
-//     console.log('DOM loaded')
-//     document.querySelector('button').addEventListener('click', (ev) => {
-//         console.log('button clicked')
-//         fetch(URL)
-//             //.then(() => { console.log('fetched data') })
-//             .then((res) => { return res.json() })
-//             .then((resJSON) => {
-//                 // Manipulate data
-//                 console.log(resJSON);
-//             })
-//             .catch((error) => { console.error(`ERROR: ${error}`) });
-
-//             ev.preventDefault();
-//     });
+// document.querySelector('button').addEventListener('click', (ev) => {
+//     console.log('clicked');
+//     const date = document.querySelector('#date').value;
+//     console.log(date);
+//     ev.preventDefault();
+//     const newDate = date.split("-");
+//     console.log(newDate);
+//     year = newDate[0];
+//     const month = newDate[1];
+//     const day = newDate[2];
 // });
 
+// ~ Variables and Functions ~
+
+// Globally declared value that checks for holidays on the page
+let hasHoliday = false;
+
+// List of countries; hopefully covers every day of the year
+const countries = [
+    'US', 
+    'CA', 
+    'CN', 
+    'DJ', 
+    'DE', 
+    'HT', 
+    'RU', 
+    'KR', 
+    'TH'
+]
+
+// Text version of dates for writing the email template
+const textDates = {
+    days: [
+        'first', 
+        'second', 
+        'third', 
+        '4th', 
+        '5th', 
+        '6th', 
+        '7th', 
+        '8th', 
+        '9th', 
+        '10th', 
+        '11th', 
+        '12th', 
+        '13th', 
+        '14th', 
+        '15th', 
+        '16th', 
+        '17th', 
+        '18th', 
+        '19th', 
+        '20th', 
+        '21st', 
+        '22nd', 
+        '23rd', 
+        '24th', 
+        '25th', 
+        '26th', 
+        '27th', 
+        '28th', 
+        '29th', 
+        '30th', 
+        '31st'],
+    months: [
+        'January', 
+        'February', 
+        'March', 
+        'April', 
+        'June', 
+        'July', 
+        'August', 
+        'September', 
+        'October', 
+        'November', 
+        'December']
+};
+
+// Display function
+const makeDisplay = (holidayArr) => {
+    
+    for (let i=0; i<holidayArr.length; i++) {
+        // Create elements
+        const holiday = document.createElement('div');
+        const holidayTitle = document.createElement('h4');
+        const holidayDescr = document.createElement('h6');
+        const useHoliday = document.createElement('button')
+
+        // Add text and other attributes
+        holiday.className = i
+        holidayTitle.innerText = holidayArr[i].name;
+        holidayDescr.innerText = holidayArr[i].description;
+        useHoliday.innerText = "Use this holiday!";
+
+        // Append name and description to holiday
+        holiday.append(holidayTitle, holidayDescr, useHoliday);
+
+        // Append holiday to list
+        document.querySelector('#holiday-list').append(holiday);
+    };
+
+    // When this runs, changes the value to true
+    hasHoliday = true;
+};
+
+// Makes an email template
+const makeTemplate = (day, month, year, holiday, description) => {
+
+    const template = `I regret to inform you that I will not be at work on the ${textDates.days[day-1]} of ${textDates.months[month-1]}, ${year}, because it is the very much celebrated ${holiday}. ${description}. If trust that you do not have any further questions about the matter.`
+
+    console.log(template);
+
+};
 
 
-// Choose holiday
+//Search
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM loaded')
+    
+    document.querySelector('button').addEventListener('click', (ev) => {
+        console.log('button clicked');
+
+        // Get the date
+        const date = document.querySelector('#date').value;
+        const newDate = date.split("-");
+        const year = newDate[0];
+        const month = newDate[1];
+        const day = newDate[2];
+
+        // Do while loop to fetch through countries
+        for (let i = 0; i < countries.length; i++)  {
+
+            // Make url
+            let country = countries[i];
+            const key = '9f7484ace85d979cd66c3f946ed8234d7c1374c8'
+            const URL = `https://calendarific.com/api/v2/holidays?api_key=${key}&country=${country}&year=${year}&month=${month}&day=${day}`
+
+            // Runs only if there are no holidays printed on screen
+            // In both places because async is funky
+            if (hasHoliday === false) {
+
+            // Fetch data with "country = countries[i]"
+            fetch(URL)
+                .then((res) => { return res.json() })
+                .then((resJSON) => {
+                    // Manipulate data
+
+                    // Runs only if there are holidays in the array
+                    if (resJSON.response.holidays.length > 0) {
+                        // Runs only if there are no holidays printed on screen
+                        // In both places because async is funky
+                        if (hasHoliday === false) {
+                            // Run data manipulation functions
+
+                            // Create holiday display
+                            makeDisplay(resJSON.response.holidays);
+
+                            // Choose holiday
+                            console.log(document.querySelector('#holiday-list').children)
+                            for (let i = 0; i < document.querySelector('#holiday-list').children.length; i++) {
+
+                                console.log(document.querySelector('#holiday-list').children[i]);
+                                document.querySelector('#holiday-list').children[i].querySelector('button').addEventListener('click', () => {
+
+                                    // Get data
+                                    let holiday = document.querySelector(`.${i}`).querySelector('h4').innerText;
+                                    let description = document.querySelector(`.${i}`).querySelector('h6').innerText;
+
+                                    // makeTemplate = (day, month, year, holiday, description)
+                                    makeTemplate(day, month, year, holiday, description)
+
+                                });
+                            };
+                        };
+                    };
+                })
+                .catch((error) => { console.error(`ERROR: ${error}`) });
+
+            };
+        };
+        // Stop the page from reloading
+        ev.preventDefault();
+
+    });
+});
