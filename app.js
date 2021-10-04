@@ -13,20 +13,7 @@ console.log('connected');
 // 5. Generate email template based on holiday choice
 
 
-// Messing with date input
-// document.querySelector('button').addEventListener('click', (ev) => {
-//     console.log('clicked');
-//     const date = document.querySelector('#date').value;
-//     console.log(date);
-//     ev.preventDefault();
-//     const newDate = date.split("-");
-//     console.log(newDate);
-//     year = newDate[0];
-//     const month = newDate[1];
-//     const day = newDate[2];
-// });
-
-// ~ Variables and Functions ~
+// ~~~ Variables&Functions ~~~
 
 // Globally declared value that checks for holidays on the page
 let hasHoliday = false;
@@ -103,10 +90,10 @@ const makeDisplay = (holidayArr) => {
         const useHoliday = document.createElement('button')
 
         // Add text and other attributes
-        holiday.className = i
+        holiday.className = `h-${i}`
         holidayTitle.innerText = holidayArr[i].name;
         holidayDescr.innerText = holidayArr[i].description;
-        useHoliday.innerText = "Use this holiday!";
+        useHoliday.innerText = "Get your excuse!";
 
         // Append name and description to holiday
         holiday.append(holidayTitle, holidayDescr, useHoliday);
@@ -119,17 +106,51 @@ const makeDisplay = (holidayArr) => {
     hasHoliday = true;
 };
 
-// Makes an email template
+// Makes an email template with easily copyable text
 const makeTemplate = (day, month, year, holiday, description) => {
 
-    const template = `I regret to inform you that I will not be at work on the ${textDates.days[day-1]} of ${textDates.months[month-1]}, ${year}, because it is the very much celebrated ${holiday}. ${description}. If trust that you do not have any further questions about the matter.`
+    const template = `I regret to inform you that I will not be at work on the ${textDates.days[day-1]} of ${textDates.months[month-1]}, ${year}, because it is the very much celebrated ${holiday}. ${description}. I trust that you do not have any further questions about the matter.`
 
     console.log(template);
 
+    // Clear screen
+    document.querySelector('#info').innerHTML = "";
+
+    // Print email template
+    // Create textbox for email
+    const email = document.createElement('textarea');
+    const copy = document.createElement('button');
+    
+    // Add attributes
+    email.placeholder = template;
+    copy.innerText = 'Copy template';
+    // Copy to clipboard on click
+    copy.addEventListener('click', () => {
+        // Getting the text
+        let copyText = document.querySelector('textarea');
+
+        // Selecting the text
+        copyText.select();
+
+        // Selecting the text on mobile
+        copyText.setSelectionRange(0, 99999);
+
+        // Copying text to clipboard
+        navigator.clipboard.writeText(copyText.placeholder);
+    });
+
+    // Append email and copy button to page
+    document.querySelector('#info').append(email, copy);
+
 };
 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-//Search
+// ~~~ Webpage Functionality ~~~
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM loaded')
     
@@ -179,8 +200,8 @@ document.addEventListener('DOMContentLoaded', () => {
                                 document.querySelector('#holiday-list').children[i].querySelector('button').addEventListener('click', () => {
 
                                     // Get data
-                                    let holiday = document.querySelector(`.${i}`).querySelector('h4').innerText;
-                                    let description = document.querySelector(`.${i}`).querySelector('h6').innerText;
+                                    let holiday = document.querySelector(`.h-${i}`).querySelector('h4').innerText;
+                                    let description = document.querySelector(`.h-${i}`).querySelector('h6').innerText;
 
                                     // makeTemplate = (day, month, year, holiday, description)
                                     makeTemplate(day, month, year, holiday, description)
@@ -199,3 +220,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     });
 });
+
+
+// ~~~ Works Cited ~~~
+// Used for making a copy to clipboard button ==> https://www.w3schools.com/howto/howto_js_copy_clipboard.asp
+// 
