@@ -1,4 +1,71 @@
+/* === Body === */
+
 body {
-    background-color: whitesmoke;
+
+}
+
+.container {
+    display: grid;
+    grid-template-areas:
+        'header'
+        'main'
+        'footer';
+    width: 100vw;
+    height: 100vh;
+}
+
+/* === Header === */
+
+header{
     display: flex;
+    background-color: lightcyan;
+    position: absolute;
+    top: 0;
+    height: 50px;
+    width: 100%;
+}
+
+/* === Main === */
+
+main {
+    background-color: lightcoral;
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+}
+
+h1 {
+    margin: 0 auto;
+    padding: 10px 10px 10px 10px;
+    background-color: lightgreen;
+}
+
+h2 {
+    margin: 0 auto;
+    padding: 10px 10px 10px 10px;
+    background-color: lightseagreen;
+}
+
+p {
+    margin: 0 auto;
+    padding: 10px 10px 10px 10px;
+    background-color: mediumpurple;
+}
+
+#info {
+    display: flex;
+    height: 100%;
+    padding: 10px 10px 10px 10px;
+    background-color: lime;
+}
+
+/* === Footer === */
+
+footer {
+    display: flex;
+    background-color: lightcyan;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }

@@ -6,42 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="app.js" defer></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons">
+
     <title>S.I.W.M.W.</title>
 </head>
 
 <body>
-    <header>
-        <div>
+    <div class="grid-container">
+        <header>Header</header>
+        <div class="blankspace" id="b-2"></div>
+        <main>
+            <section id="welcome">
 
-        </div>
-    </header>
-    <main>
-        <section id="welcome">
-            <div>
-                <h2>Welcome to</h1>
-                <h1>Sorry I Will Miss Work</h1>
-            </div>
-            <div>
-                <p>Have you ever wanted to skip out on work, but struggled to find an excuse? Now you can find the perfect excuse for any workday absence with "Sorry I Will Miss Work"! Enter a date, and the app will give you a holiday to help you explain why you will miss work that day. "Sorry I Will Miss Work" will even create an email you can send to your boss that will surely explain the importance of your absence.</p>
-            </div>
-        </section>
-        <div id="info">
+                <div>
+                    <h2>Welcome to</h1>
+                    <h1>Sorry I Will Miss Work</h1>
+                </div>
 
-            <form action="">
-                <label for="date">When do you need off?</label>
-                <input id="date" type="date" name="date"/>
-                <button id="get-date">Get your holiday!</button>
-            </form>
+                <div>
+                    <p>Have you ever wanted to skip out on work, but struggled to find an excuse? Now you can find the perfect excuse for any workday absence with "Sorry I Will Miss Work"! Enter a date, and the app will give you a holiday to help you explain why you will miss work that day. "Sorry I Will Miss Work" will even create an email you can send to your boss that will surely explain the importance of your absence.</p>
+                </div>
 
-            <section id="print-info">
-                <div id="holiday-list"></div>
             </section>
 
-        </div>
+            <div id="info">
 
-    </main>
-    <footer>
+                <form action="">
+                    <label for="date">When do you need off?</label>
+                    <input id="date" type="date" name="date"/>
+                    <button id="get-date"><span class="material-icons-outlined">content_copy</span></button>
+                </form>
 
-    </footer>
+                <section id="print-info">
+                    <div id="holiday-list"></div>
+                </section>
+
+            </div>
+
+        </main>
+        <div class="blankspace" id="b-1"></div>
+        <footer>Footer</footer>
+    </div>
 </body>
 </html>

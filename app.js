@@ -94,7 +94,7 @@ const makeDisplay = (holidayArr) => {
         holiday.className = `h-${i}`
         holidayTitle.innerText = holidayArr[i].name;
         holidayDescr.innerText = holidayArr[i].description;
-        useHoliday.innerText = "Get your excuse!";
+        useHoliday.innerText = "Use this holiday!"
 
         // Append name and description to holiday
         holiday.append(holidayTitle, holidayDescr, useHoliday);
@@ -228,7 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             };
         };
-        
+
         // Stop the page from reloading
         ev.preventDefault();
 
