@@ -86,7 +86,8 @@ https://whimsical.com/siwmw-HFuHuQfxTcdVRwwSurp49k
 - [ ] Incorperate a loading animation (possibly from codepen)
 
 # Code Snippet
-This 
+This was a chunk of code where I learned a lot about fetching and manipulating data from an API. There were a limited number of fetch requests, so I wanted to eliminate any uneccissary fetches. I needed to stop the loop (seen at the top of the snippet) when I had the data I needed. An if statement was written to check if the page had a holiday displayed, but it didn't work because fetch is an asynchronous function - the order of code execution is thrown off. Since fetch is slower than the rest of the script, I had to put two instances of the same if statement in the code; one on the inside of the fetch and one above it. Additionally, I put an if statement inside the fetch that checked if the incoming data was empty.
+
 ```
 for (let i = 0; i < countries.length; i++)  {
 
@@ -94,15 +95,15 @@ for (let i = 0; i < countries.length; i++)  {
     const key = '9f7484ace85d979cd66c3f946ed8234d7c1374c8'
     const URL = `https://calendarific.com/api/v2/holidays?api_key=${key}&country=${country}&year=${year}&month=${month}&day=${day}`
 
-//~~Checks to see if th
+//~~Uses a boolean within the makeDisplay function to check if there are holidays on the page
     if (hasHoliday === false) {
     fetch(URL)
         .then((res) => { return res.json() })
         .then((resJSON) => {
         
-//~~~~~~~~~~ 
+//~~~~~~~~~~Checks to see if there are holidays in the JSON
             if (resJSON.response.holidays.length > 0) {
-//~~~~~~~~~~~~~~ 
+//~~~~~~~~~~~~~~Again, checks if there are holidays on the page with the boolean
                 if (hasHoliday === false) {
                     console.log(resJSON.response)
                     makeDisplay(resJSON.response.holidays);
