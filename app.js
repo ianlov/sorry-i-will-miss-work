@@ -100,7 +100,7 @@ const makeDisplay = (holidayArr) => {
         holiday.append(holidayTitle, holidayDescr, useHoliday);
 
         // Append holiday to list
-        document.querySelector('#holiday-list').append(holiday);
+        document.querySelector('#item5').append(holiday);
     };
 
     // When this runs, changes the value to true
@@ -126,7 +126,7 @@ const makeTemplate = (day, month, year, holiday, description) => {
     console.log(template);
 
     // Clear screen
-    document.querySelector('#info').innerHTML = "";
+    document.querySelector('#item5').innerHTML = "";
 
     // Print email template
     // Create textbox for email
@@ -151,7 +151,7 @@ const makeTemplate = (day, month, year, holiday, description) => {
     });
 
     // Append email and copy button to page
-    document.querySelector('#info').append(email, copy);
+    document.querySelector('#item5').append(email, copy);
 
 };
 
@@ -206,11 +206,11 @@ document.addEventListener('DOMContentLoaded', () => {
                             makeDisplay(resJSON.response.holidays);
 
                             // Choose holiday
-                            console.log(document.querySelector('#holiday-list').children)
-                            for (let i = 0; i < document.querySelector('#holiday-list').children.length; i++) {
+                            console.log(document.querySelector('#item5').children)
+                            for (let i = 0; i < document.querySelector('#item5').children.length; i++) {
 
-                                console.log(document.querySelector('#holiday-list').children[i]);
-                                document.querySelector('#holiday-list').children[i].querySelector('button').addEventListener('click', () => {
+                                console.log(document.querySelector('#item5').children[i]);
+                                document.querySelector('#item5').children[i].querySelector('button').addEventListener('click', () => {
 
                                     // Get data
                                     let holiday = document.querySelector(`.h-${i}`).querySelector('h4').innerText;
