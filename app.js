@@ -28,7 +28,16 @@ const countries = [
     'HT', 
     'RU', 
     'KR', 
-    'TH'
+    'TH',
+    'AF',
+    'AL',
+    'AR',
+    'AW',
+    'AU',
+    'AZ',
+    'BH',
+    'BB',
+    'BT'
 ]
 
 // Text version of dates for writing the email template
@@ -122,7 +131,7 @@ const makeTemplate = (day, month, year, holiday, description) => {
     }
 
     // Create adaptave email template
-    const template = `I regret to inform you that I will not be at work on the ${textDates.days[day-1]} of ${textDates.months[month-1]}, ${year}, because it is the very much celebrated ${holiday}. ${description}. I trust that you do not have any further questions about the matter.`
+    const template = `I regret to inform you that I will not be at work on the ${textDates.days[day-1]} of ${textDates.months[month-1]}, ${year}, because it is ${holiday}. I can assure you, I celebrate this holiday every year. ${description}. I trust that you do not have any further questions about the matter.`
     console.log(template);
 
     // Clear screen
@@ -203,13 +212,13 @@ document.addEventListener('DOMContentLoaded', () => {
                             // Run data manipulation functions
 
                             // Create holiday display
+                            console.log(resJSON.response)
                             makeDisplay(resJSON.response.holidays);
+                            
 
                             // Choose holiday
-                            console.log(document.querySelector('#item5').children)
                             for (let i = 0; i < document.querySelector('#item5').children.length; i++) {
 
-                                console.log(document.querySelector('#item5').children[i]);
                                 document.querySelector('#item5').children[i].querySelector('button').addEventListener('click', () => {
 
                                     // Get data
