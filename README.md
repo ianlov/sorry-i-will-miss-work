@@ -86,3 +86,39 @@ https://whimsical.com/siwmw-HFuHuQfxTcdVRwwSurp49k
 - [ ] Incorperate a loading animation (possibly from codepen)
 
 # Code Snippet
+This 
+```
+for (let i = 0; i < countries.length; i++)  {
+
+    let country = countries[i];
+    const key = '9f7484ace85d979cd66c3f946ed8234d7c1374c8'
+    const URL = `https://calendarific.com/api/v2/holidays?api_key=${key}&country=${country}&year=${year}&month=${month}&day=${day}`
+
+//~~Checks to see if th
+    if (hasHoliday === false) {
+    fetch(URL)
+        .then((res) => { return res.json() })
+        .then((resJSON) => {
+        
+//~~~~~~~~~~ 
+            if (resJSON.response.holidays.length > 0) {
+//~~~~~~~~~~~~~~ 
+                if (hasHoliday === false) {
+                    console.log(resJSON.response)
+                    makeDisplay(resJSON.response.holidays);
+                    for (let i = 0; i < document.querySelector('#item5').children.length; i++) {
+                        document.querySelector('#item5').children[i].querySelector('button').addEventListener('click', () => {
+                            let holiday = document.querySelector(`.h-${i}`).querySelector('h4').innerText;
+                            let description = document.querySelector(`.h-${i}`).querySelector('h5').innerText;
+                            makeTemplate(day, month, year, holiday, description)
+
+                        });
+                    };
+                };
+            };
+        })
+        .catch((error) => { console.error(`ERROR: ${error}`) });
+
+    };
+};
+```
