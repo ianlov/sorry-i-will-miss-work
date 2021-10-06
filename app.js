@@ -214,7 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                                     // Get data
                                     let holiday = document.querySelector(`.h-${i}`).querySelector('h4').innerText;
-                                    let description = document.querySelector(`.h-${i}`).querySelector('h6').innerText;
+                                    let description = document.querySelector(`.h-${i}`).querySelector('h5').innerText;
 
                                     // makeTemplate = (day, month, year, holiday, description)
                                     makeTemplate(day, month, year, holiday, description)
