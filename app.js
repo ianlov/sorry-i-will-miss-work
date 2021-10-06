@@ -87,7 +87,7 @@ const makeDisplay = (holidayArr) => {
         // Create elements
         const holiday = document.createElement('div');
         const holidayTitle = document.createElement('h4');
-        const holidayDescr = document.createElement('h6');
+        const holidayDescr = document.createElement('h5');
         const useHoliday = document.createElement('button')
 
         // Add text and other attributes

@@ -9,7 +9,6 @@ body {
 #item3 { grid-area: description; }
 #item4 { grid-area: input; }
 #item5 { grid-area: print; }
-/* #item6 { grid-area: footer; } */
 
 .grid-container {
     display: grid;
@@ -18,7 +17,6 @@ body {
         'description'
         'input'
         'print';
-        /* 'footer'; */
     padding: 0px;
     width: 100vw;
     height: 100vh;
@@ -121,18 +119,45 @@ p {
 
 /* === Media Query === */
 
-@media screen {
+@media screen and (min-width: 800px) {
+    /* === Body === */
     
-}
-.grid-container {
+    .grid-container {
     display: grid;
     grid-template-areas:
-        'title'
-        'description'
-        'input'
-        'print';
-        /* 'footer'; */
+        'title title'
+        'description input'
+        'description print';
     padding: 0px;
     width: 100vw;
     height: 100vh;
+    }
+
+    /* === Main === */
+
+    #item3, #item4, #item5 {
+        margin: 50px 50px 50px 50px;
+    }
+
+    input {
+        height: 40px;
+    }
+
+    button {
+        height: 40px
+    }
+
+    h4 {
+        font-size: 25px;
+    }
+
+    h5 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 25px;
+    }
+
+
 }
