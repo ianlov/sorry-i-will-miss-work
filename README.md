@@ -78,15 +78,11 @@ https://whimsical.com/siwmw-HFuHuQfxTcdVRwwSurp49k
 - [x] Render data using a date input
 - [x] Generate an email template that includes the holiday and relevant information
 - [x] Build layout using HTML and JavaScript
-- [ ] Style the page using CSS and Flexbox
-- [ ] Use "mobile first" principles to create a responsive website
+- [x] Style the page using CSS and Flexbox
+- [x] Use "mobile first" principles to create a responsive website
 
 ## Post-MVP
 - [ ] Offer multiple email templates
 - [ ] Incorperate a loading animation (possibly from codepen)
- 
-# Project Schedule
-
-# Timeframes
 
 # Code Snippet
