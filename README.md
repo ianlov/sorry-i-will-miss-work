@@ -82,7 +82,7 @@ https://whimsical.com/siwmw-HFuHuQfxTcdVRwwSurp49k
 - [x] Use "mobile first" principles to create a responsive website
 
 ## Post-MVP
-- [ ] Offer multiple email templates
+- [x] Add a 'copy' button that lets the user copy the email template
 - [ ] Incorperate a loading animation (possibly from codepen)
 
 # Code Snippets
