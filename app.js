@@ -119,11 +119,6 @@ const makeDisplay = (holidayArr) => {
 
 // Makes an email template with easily copyable text
 const makeTemplate = (day, month, year, holiday, description) => {
-    console.log(`Day: ${day}`);
-    console.log(`Month: ${month}`);
-    console.log(`Year: ${year}`);
-    console.log(`Holiday: ${holiday}`);
-    console.log(`Description: ${description}`);
 
     // Fix additional period issues on description
     if (description.charAt(description.length - 1) === ".") {
@@ -175,7 +170,7 @@ const makeTemplate = (day, month, year, holiday, description) => {
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM loaded')
-    
+
     document.querySelector('button').addEventListener('click', (ev) => {
         console.log('button clicked');
 
@@ -187,7 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const day = newDate[2];
 
         // Do while loop to fetch through countries
-        for (let i = 0; i < countries.length; i++)  {
+        for (let i = 0; i < countries.length; i++) {
 
             // Make url
             let country = countries[i];
@@ -197,43 +192,42 @@ document.addEventListener('DOMContentLoaded', () => {
             // Runs only if there are no holidays printed on screen
             // In both places because async is funky
             if (hasHoliday === false) {
+                // Fetch data with "country = countries[i]"
+                fetch(URL)
+                    .then((res) => { return res.json() })
+                    .then((resJSON) => {
+                        // Manipulate data
 
-            // Fetch data with "country = countries[i]"
-            fetch(URL)
-                .then((res) => { return res.json() })
-                .then((resJSON) => {
-                    // Manipulate data
+                        // Runs only if there are holidays in the array
+                        if (resJSON.response.holidays.length > 0) {
+                            // Runs only if there are no holidays printed on screen
+                            // In both places because async is funky
+                            if (hasHoliday === false) {
+                                // Run data manipulation functions
 
-                    // Runs only if there are holidays in the array
-                    if (resJSON.response.holidays.length > 0) {
-                        // Runs only if there are no holidays printed on screen
-                        // In both places because async is funky
-                        if (hasHoliday === false) {
-                            // Run data manipulation functions
+                                // Create holiday display
+                                console.log(resJSON.response)
+                                makeDisplay(resJSON.response.holidays);
 
-                            // Create holiday display
-                            console.log(resJSON.response)
-                            makeDisplay(resJSON.response.holidays);
-                            
 
-                            // Choose holiday
-                            for (let i = 0; i < document.querySelector('#item5').children.length; i++) {
+                                // Choose holiday
+                                for (let i = 0; i < document.querySelector('#item5').children.length; i++) {
 
-                                document.querySelector('#item5').children[i].querySelector('button').addEventListener('click', () => {
+                                    document.querySelector('#item5').children[i].querySelector('button').addEventListener('click', () => {
 
-                                    // Get data
-                                    let holiday = document.querySelector(`.h-${i}`).querySelector('h4').innerText;
-                                    let description = document.querySelector(`.h-${i}`).querySelector('h5').innerText;
+                                        // Get data
+                                        let holiday = document.querySelector(`.h-${i}`).querySelector('h4').innerText;
+                                        let description = document.querySelector(`.h-${i}`).querySelector('h5').innerText;
 
-                                    // makeTemplate = (day, month, year, holiday, description)
-                                    makeTemplate(day, month, year, holiday, description)
+                                        // makeTemplate = (day, month, year, holiday, description)
+                                        makeTemplate(day, month, year, holiday, description)
 
-                                });
+                                    });
+                                };
                             };
                         };
-                    };
-                })
-                .catch((error) => { console.error(`ERROR: ${error}`) });
+                    })
+                    .catch((error) => { console.error(`ERROR: ${error}`) });
 
             };
         };
@@ -248,3 +242,4 @@ document.addEventListener('DOMContentLoaded', () => {
 // ~~~ Works Cited ~~~
 // Used for making a copy to clipboard button ==> https://www.w3schools.com/howto/howto_js_copy_clipboard.asp
 // Used for taking the period off the description ==> https://herewecode.io/blog/remove-last-character-string-javascript/ & https://stackoverflow.com/questions/3884632/how-to-get-the-last-character-of-a-string
+// Used for adding outline to text ==> https://www.codesdope.com/blog/article/adding-outline-to-text-using-css/
