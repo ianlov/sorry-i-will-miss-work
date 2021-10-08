@@ -125,7 +125,7 @@ for (let i = 0; i < countries.length; i++)  {
 };
 ```
 
-** CSS Organization
+## CSS Organization
 This is a code snippet from my style page. I learned in this project that I need to be organized in my styling if I want to be effective. What is shown below is a portion of my second attempt at styling the page, which has section headers and coherent naming of divs. The first attempt worked to an extent, but the lack of organization made it difficult to work out bugs in the code.
 
 ```
@@ -217,6 +217,8 @@ const makeTemplate = (day, month, year, holiday, description) => {
     }
 
 //~~Create adaptave email template
-    const template = `I regret to inform you that I will not be at work on the ${textDates.days[day-1]} of ${textDates.months[month-1]}, ${year}, because it is      ${holiday}. I can assure you, I celebrate this holiday every year. ${description}. I trust that you do not have any further questions about the matter.`
+    const template = `I regret to inform you that I will not be at work on the ${textDates.days[day-1]} of ${textDates.months[month-1]}, ${year}, 
+    because it is ${holiday}. I can assure you, I celebrate this holiday every year. ${description}. I trust that you do not have any further 
+    questions about the matter.`
     
 ```
