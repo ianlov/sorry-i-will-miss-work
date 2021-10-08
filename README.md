@@ -1,4 +1,4 @@
-# sorry-i-will-miss-work
+# Sorry, I Will Miss Work
 https://ianlov.github.io/sorry-i-will-miss-work/
 
 # Project Description
