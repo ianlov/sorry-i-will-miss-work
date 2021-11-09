@@ -1,5 +1,4 @@
-# Sorry, I Will Miss Work
-https://ianlov.github.io/sorry-i-will-miss-work/
+# [Sorry, I Will Miss Work](https://ianlov.github.io/sorry-i-will-miss-work/)
 
 # Project Description
 Have you ever wanted to skip out on work, but struggled to find an excuse? Now you can find the perfect excuse for any workday absence with :tada:"Sorry I Will Miss Work":tada:! Enter a date, and the app will give you a holiday to help you explain why you will miss work that day. "Sorry I Will Miss Work" will even create an email you can send to your boss that will surely explain the importance of your absence.
@@ -70,7 +69,7 @@ https://calendarific.com/
 };
 ```
 # Wireframes
-https://whimsical.com/siwmw-HFuHuQfxTcdVRwwSurp49k
+blob:https://whimsical.com/1ba5c7b5-cddf-3f4a-8d5e-76be4783adb6
 
 # MVP/Post-MVP
 ## MVP
